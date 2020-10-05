@@ -6,6 +6,8 @@
 ** Mountain Meadow: #17B890
 ** Steel Teal: #5E807F
 ** Dark Green: #082D0F
+**
+** source: https://coolors.co/dee5e5-9dc5bb-17b890-5e807f-082d0f
 */
 
 * {
@@ -124,6 +126,18 @@ footer {
 footer p {
   text-align: center;
   font-size: 11px;
+}
+
+footer p a:link {
+  color: #082D0F;
+}
+
+footer p a:hover {
+  opacity: 70%;
+}
+
+footer p a:visited {
+  color: #9DC5BB;
 }
 
 /* For tablets  */
