@@ -22,8 +22,31 @@ function createLinkButtonElements(links) {
   })
 }
 
+function fetchWithTimeout(url, options = {}, time = 3000) {
+  const controller = new AbortController()
+  const config = { ...options, signal: controller.signal }
+
+  setTimeout(() => {
+    controller.abort()
+  }, time)
+
+  return fetch(url, config)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`${response.status}: ${response.statusText}`)
+      }
+      return response
+    })
+    .catch((error) => {
+      if (error.name === 'AbortError') {
+        throw new Error('Response timed out')
+      }
+      throw new Error(error.message)
+    })
+}
+
 (function() {
-  fetch('https://strapi.kevinasurjadi.com/social-links')
+  fetchWithTimeout('https://strapi.kevinasurjadi.com/social-links')
     .then((response) => response.json())
     .then((links) => {
       createLinkButtonElements(links)
