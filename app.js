@@ -4,8 +4,8 @@ async function readDefaultData() {
     .then((data) => data)
 }
 
-function createLinkButtonElements(links) {
-  const section = document.getElementsByTagName('section')[0]
+function createLinkButtonElements(links, id) {
+  const section = document.getElementById(id)
   links.forEach((link) => {
     const button = document.createElement('a')
     button.setAttribute('class', 'button')
@@ -46,13 +46,26 @@ function fetchWithTimeout(url, options = {}, time = 3000) {
 }
 
 (function() {
-  fetchWithTimeout('https://strapi.kevinasurjadi.com/social-links')
+  fetchWithTimeout('https://strapi.kevinasurjadi.com/social-links?type=social&_sort=priority:ASC')
     .then((response) => response.json())
     .then((links) => {
-      createLinkButtonElements(links)
+      createLinkButtonElements(links, 'social')
     })
     .catch(async () => {
       const defaultData = await readDefaultData()
       createLinkButtonElements(defaultData)
+    })
+  fetchWithTimeout('https://strapi.kevinasurjadi.com/social-links?type=workaround&_sort=priority:ASC')
+    .then((response) => response.json())
+    .then((links) => {
+      const social = document.getElementById('social')
+      const section = document.createElement('section')
+      section.setAttribute('id', 'workaround')
+      const title = document.createElement('p')
+      title.setAttribute('class', 'caption')
+      title.innerHTML = 'My workaround'
+      section.appendChild(title)
+      social.parentNode.insertBefore(section, social.nextSibling)
+      createLinkButtonElements(links, 'workaround')
     })
 })()

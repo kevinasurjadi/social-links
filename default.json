@@ -3,5 +3,15 @@
     "title":"Instagram",
     "icon":"fab fa-instagram",
     "url":"https://www.instagram.com/kevinasurjadi/"
+  },
+  {
+    "title":"Facebook",
+    "icon":"fab fa-facebook-f",
+    "url":"https://www.facebook.com/kevinasurjadi"
+  },
+  {
+    "title":"Twitter",
+    "icon":"fab fa-twitter",
+    "url":"https://twitter.com/kevinasurjadi"
   }
 ]
