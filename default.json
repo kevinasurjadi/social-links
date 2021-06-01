@@ -1,5 +1,20 @@
 [
   {
+    "title":"Medium",
+    "icon":"fab fa-medium",
+    "url": "https://medium.kevinasurjadi.com"
+  },
+  {
+    "title":"LinkedIn",
+    "icon":"fab fa-linkedin",
+    "url":"https://www.linkedin.com/in/kevinasurjadi/"
+  },
+  {
+    "title":"Codepen",
+    "icon":"fab fa-codepen",
+    "url":"https://codepen.io/kevinasurjadi"
+  },
+  {
     "title":"Instagram",
     "icon":"fab fa-instagram",
     "url":"https://www.instagram.com/kevinasurjadi/"
